@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>メダデ教会 | 大阪・西成</title>
+  <meta name="description" content="どんな事情があっても、ここに来てよい。大阪・西成のメダデ教会のご案内です。礼拝案内、活動紹介、初めての方へのご案内、アクセス情報を掲載しています。" />
+  <style>
+    :root {
+      --bg: #f8f5ef;
+      --bg-soft: #fcfaf6;
+      --surface: #ffffff;
+      --surface-alt: #f2eee6;
+      --text: #2f312d;
+      --text-light: #5f665d;
+      --line: #ddd4c7;
+      --primary: #4f6b5a;
+      --primary-deep: #3f594a;
+      --secondary: #7b93a6;
+      --accent: #a98357;
+      --shadow: 0 14px 40px rgba(55, 50, 41, 0.08);
+      --radius: 20px;
+      --radius-sm: 14px;
+      --container: min(1120px, calc(100% - 32px));
+      --header-height: 72px;
+      --transition: 0.35s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-alt {
+      background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.7));
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 18px;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      line-height: 1.45;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+    }
+
+    h3 {
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+    }
+
+    p {
+      margin: 0 0 1em;
+      color: var(--text-light);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2em;
+      color: var(--text-light);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--header-height);
+      backdrop-filter: blur(12px);
+      background: rgba(248, 245, 239, 0.9);
+      border-bottom: 1px solid rgba(221, 212, 199, 0.85);
+    }
+
+    .site-header .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #f0e8db 55%, #d7c3a7 100%);
+      border: 1px solid rgba(169, 131, 87, 0.4);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      background: rgba(79, 107, 90, 0.9);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+    }
+
+    .brand-mark::before {
+      width: 3px;
+      height: 20px;
+    }
+
+    .brand-mark::after {
+      width: 16px;
+      height: 3px;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-title {
+      display: block;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 1rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .brand-subtitle {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    .nav-toggle {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(79, 107, 90, 0.18);
+      background: rgba(255,255,255,0.75);
+      border-radius: 14px;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition), border-color var(--transition);
+    }
+
+    .nav-toggle:hover {
+      background: #fff;
+      border-color: rgba(79, 107, 90, 0.35);
+    }
+
+    .nav-toggle span {
+      width: 20px;
+      height: 2px;
+      background: var(--primary-deep);
+      border-radius: 999px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .site-nav {
+      position: fixed;
+      inset: var(--header-height) 0 auto 0;
+      background: rgba(248, 245, 239, 0.98);
+      border-bottom: 1px solid rgba(221, 212, 199, 0.85);
+      padding: 12px 16px 24px;
+      transform: translateY(-120%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .site-nav.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .site-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .site-nav a {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.76);
+      color: var(--text);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      background: #fff;
+      transform: translateX(4px);
+      outline: none;
+    }
+
+    .hero {
+      padding: 42px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero-card,
+    .hero-visual {
+      border-radius: calc(var(--radius) + 4px);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+      padding: 28px 22px;
+      border: 1px solid rgba(221, 212, 199, 0.8);
+    }
+
+    .hero-lead {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .hero-copy {
+      margin-bottom: 26px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+      cursor: pointer;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 107, 90, 0.12);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--primary-deep);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.86);
+      color: var(--primary-deep);
+      border-color: rgba(79, 107, 90, 0.24);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: #fff;
+      border-color: rgba(79, 107, 90, 0.45);
+    }
+
+    .hero-visual {
+      min-height: 380px;
+      position: relative;
+      background:
+        linear-gradient(160deg, rgba(79,107,90,0.18), rgba(123,147,166,0.08)),
+        radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(248,245,239,0.45) 40%, rgba(204,188,160,0.18) 100%),
+        linear-gradient(135deg, #efe7da, #f8f5ef);
+      border: 1px solid rgba(221, 212, 199, 0.8);
+    }
+
+    .hero-visual::before {
+      content: "写真エリア";
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      color: var(--text-light);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-visual::after {
+      content: "教会や地域のぬくもりが伝わる写真をここに配置";
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      color: rgba(47, 49, 45, 0.76);
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(221, 212, 199, 0.85);
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 0.95rem;
+    }
+
+    .quick-info {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .info-chip {
+      background: rgba(242, 238, 230, 0.9);
+      border: 1px solid rgba(221, 212, 199, 0.9);
+      border-radius: 16px;
+      padding: 14px 16px;
+    }
+
+    .info-chip strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(221, 212, 199, 0.9);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(55, 50, 41, 0.1);
+      border-color: rgba(169, 131, 87, 0.35);
+    }
+
+    .message-block {
+      background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.94));
+      border: 1px solid rgba(221, 212, 199, 0.9);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote {
+      position: relative;
+      padding-left: 18px;
+      border-left: 3px solid rgba(169, 131, 87, 0.6);
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .service-item {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(221, 212, 199, 0.9);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+
+    .service-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.85);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(221, 212, 199, 0.9);
+      padding: 18px;
+    }
+
+    .faq-item dt {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .faq-item dd {
+      margin: 0;
+      color: var(--text-light);
+    }
+
+    .access-layout,
+    .contact-layout {
+      display: grid;
+      gap: 18px;
+    }
+
+    .map-placeholder {
+      min-height: 280px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(123,147,166,0.14), rgba(169,131,87,0.12)),
+        linear-gradient(180deg, #faf7f2, #f0ece4);
+      border: 1px dashed rgba(79, 107, 90, 0.32);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--text-light);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-list li {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(221, 212, 199, 0.9);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .contact-list strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .contact-note {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .site-footer {
+      padding: 28px 0 88px;
+      background: #efe9dd;
+      border-top: 1px solid rgba(221, 212, 199, 0.95);
+    }
+
+    .footer-inner {
+      display: grid;
+      gap: 18px;
+    }
+
+    .footer-title {
+      margin-bottom: 8px;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .footer-small {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .floating-bar {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 900;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .floating-bar a {
+      min-height: 52px;
+      border-radius: 16px;
+      background: rgba(79, 107, 90, 0.95);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(63, 89, 74, 0.22);
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .floating-bar a:last-child {
+      background: rgba(123, 147, 166, 0.96);
+    }
+
+    .floating-bar a:hover,
+    .floating-bar a:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding: 54px 0 72px;
+      }
+
+      .hero-grid,
+      .access-layout,
+      .contact-layout {
+        grid-template-columns: 1.08fr 0.92fr;
+        align-items: stretch;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .quick-info {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: end;
+      }
+
+      .floating-bar {
+        left: auto;
+        right: 20px;
+        width: 320px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nav-toggle {
+        display: none;
+      }
+
+      .site-nav {
+        position: static;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        padding: 0;
+        background: transparent;
+        border: none;
+      }
+
+      .site-nav ul {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .site-nav a {
+        padding: 10px 14px;
+        background: transparent;
+        border-radius: 999px;
+        font-size: 0.95rem;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible {
+        transform: none;
+        background: rgba(255,255,255,0.72);
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 28px;
+      }
+
+      .hero-card {
+        padding: 42px 40px;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .fade-in {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="#top" class="brand" aria-label="メダデ教会 トップへ戻る">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-title">メダデ教会</span>
+          <span class="brand-subtitle">大阪・西成の小さな教会</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="主要メニュー">
+        <ul>
+          <li><a href="#message">メッセージ</a></li>
+          <li><a href="#about">教会について</a></li>
+          <li><a href="#worship">礼拝案内</a></li>
+          <li><a href="#activities">活動紹介</a></li>
+          <li><a href="#first">初めての方へ</a></li>
+          <li><a href="#access">アクセス</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card fade-in">
+            <span class="eyebrow">Welcome</span>
+            <h1>どんな事情があっても、<br />ここに来てよい。</h1>
+            <p class="hero-lead">メダデ教会は、祈りと出会いを通して、人が人として迎えられる場所でありたいと願っています。</p>
+            <div class="cta-group hero-copy">
+              <a class="btn btn-primary" href="#worship">礼拝案内を見る</a>
+              <a class="btn btn-secondary" href="#first">初めての方へ</a>
+              <a class="btn btn-secondary" href="#access">アクセスを見る</a>
+            </div>
+            <div class="quick-info" aria-label="大切なご案内">
+              <div class="info-chip">
+                <strong>どなたでも参加できます</strong>
+                <span>教会が初めての方も、どうぞ安心してお越しください。</span>
+              </div>
+              <div class="info-chip">
+                <strong>参加費無料・予約不要</strong>
+                <span>その場にいてくださるだけで大丈夫です。</span>
+              </div>
+              <div class="info-chip">
+                <strong>大阪市西成区鶴見橋</strong>
+                <span>道に迷われた場合も、お気軽にご連絡ください。</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual fade-in" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="message">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Message</span>
+          <h2>ようこそ、メダデ教会へ</h2>
+        </div>
+        <div class="message-block fade-in">
+          <p class="quote">ここは、立派であることよりも、まず人を迎えることを大切にしている教会です。</p>
+          <p>メダデ教会は、大阪・西成の地にある小さな教会です。生きることに疲れた人も、居場所を探している人も、はじめて教会の扉を見つめる人も、どうぞそのままでお越しください。</p>
+          <p>私たちは、祈りを大切にしながら、一人ひとりの歩みに耳を傾け、ともに生きる場でありたいと願っています。急いで何かを変えなくてもかまいません。ここに来て、少し肩の力を抜いていただけたらと思います。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">About</span>
+          <h2>私たちが大切にしていること</h2>
+          <p>「誰でも来てよい」ということを、言葉だけでなく、この場所のあり方として大切にしたいと考えています。</p>
+        </div>
+        <div class="card-grid">
+          <article class="card fade-in">
+            <h3>人の価値は失われない</h3>
+            <p>人にはそれぞれ、言葉にしにくい事情や、簡単には整理できない過去があります。けれど、そのどれによっても人の価値は失われません。</p>
+          </article>
+          <article class="card fade-in">
+            <h3>弱さを排除しない</h3>
+            <p>教会は、完全な人の集まりではなく、それぞれの弱さや痛みを抱えながら、なお生きようとする人たちが出会う場所です。</p>
+          </article>
+          <article class="card fade-in">
+            <h3>祈りと生活がつながる</h3>
+            <p>祈りは特別な時間だけのものではなく、日々の暮らしの中にしずかに灯るものだと、私たちは信じています。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="worship">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Worship</span>
+          <h2>礼拝のご案内</h2>
+          <p>礼拝は、どなたでも参加できます。教会が初めての方も、どうぞ安心してお越しください。</p>
+        </div>
+        <div class="service-grid">
+          <div class="service-item fade-in">
+            <strong>日時</strong>
+            <p>毎週○曜日　○時〜○時</p>
+          </div>
+          <div class="service-item fade-in">
+            <strong>会場</strong>
+            <p>メダデ教会</p>
+          </div>
+          <div class="service-item fade-in">
+            <strong>参加について</strong>
+            <p>参加費：無料<br />予約：不要</p>
+          </div>
+        </div>
+        <div class="message-block fade-in" style="margin-top: 18px;">
+          <p>聖書を知らなくても大丈夫です。賛美やお祈りに慣れていなくても問題ありません。無理に話さなくても、その場にいてくださるだけで大丈夫です。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="activities">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Activities</span>
+          <h2>教会の活動</h2>
+          <p>礼拝だけでなく、人と人とがつながり、ほっとできる時間を大切にしています。</p>
+        </div>
+        <div class="card-grid">
+          <article class="card fade-in">
+            <h3>語らいの時間</h3>
+            <p>日々のことを少し話せるだけでも、心がほどけることがあります。ここでは、急がず、無理をさせず、言葉を待つ時間を大切にしています。</p>
+          </article>
+          <article class="card fade-in">
+            <h3>食事や交わり</h3>
+            <p>食卓を囲むことは、安心の一つのかたちです。人とともにいるぬくもりが、明日を生きる力になることがあります。</p>
+          </article>
+          <article class="card fade-in">
+            <h3>相談と祈り</h3>
+            <p>すぐに解決しないことでも、ひとりではなくなることがあります。祈りや対話を通して、ともに歩む関わりを続けています。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="first">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">First Visit</span>
+          <h2>初めて来られる方へ</h2>
+          <p>「教会に行ったことがない」「何をするのかわからない」「自分が行ってよいのか不安」——そう感じる方も、どうぞ心配しすぎないでください。</p>
+        </div>
+        <div class="faq-grid">
+          <dl class="faq-item fade-in">
+            <dt>どんな服装で行けばよいですか？</dt>
+            <dd>特別な準備はいりません。普段のままの服装で大丈夫です。</dd>
+          </dl>
+          <dl class="faq-item fade-in">
+            <dt>聖書を知らなくても大丈夫ですか？</dt>
+            <dd>大丈夫です。初めての方にもわかりやすいように、ゆっくり進めています。</dd>
+          </dl>
+          <dl class="faq-item fade-in">
+            <dt>話さないといけませんか？</dt>
+            <dd>無理に話さなくても大丈夫です。静かにその場にいるだけでも歓迎しています。</dd>
+          </dl>
+          <dl class="faq-item fade-in">
+            <dt>ひとりで行っても大丈夫ですか？</dt>
+            <dd>もちろんです。ひとりで来られる方も多くおられます。来てみたいと思ったその気持ちを、どうぞ大切にしてください。</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="access">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Access</span>
+          <h2>アクセス</h2>
+          <p>初めての方で道に迷われた場合は、どうぞお気軽にご連絡ください。</p>
+        </div>
+        <div class="access-layout">
+          <div class="card fade-in">
+            <h3>所在地</h3>
+            <p>〒557-0031<br />大阪府大阪市西成区鶴見橋3-6-20</p>
+            <h3>最寄り駅</h3>
+            <p>○○駅から徒歩○分</p>
+            <h3>目印</h3>
+            <p>○○</p>
+            <a class="btn btn-secondary" href="#contact">道に迷ったときは連絡する</a>
+          </div>
+          <div class="map-placeholder fade-in" role="img" aria-label="地図を配置するエリア">
+            <div>
+              <strong style="display:block; color: var(--text); margin-bottom: 8px;">地図エリア</strong>
+              Googleマップ埋め込みや案内地図画像をここに配置できます。
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="eyebrow">Contact</span>
+          <h2>お問い合わせ</h2>
+          <p>礼拝について知りたいこと、初めて行く前に聞いておきたいこと、ご相談したいことがあれば、お気軽にご連絡ください。</p>
+        </div>
+        <div class="contact-layout">
+          <div class="card fade-in">
+            <ul class="contact-list">
+              <li>
+                <strong>お電話</strong>
+                <span>○○○-○○○○-○○○○</span>
+              </li>
+              <li>
+                <strong>メール</strong>
+                <span>xxxx@example.com</span>
+              </li>
+              <li>
+                <strong>受付について</strong>
+                <span>小さなことでも大丈夫です。どうぞ気軽にご連絡ください。</span>
+              </li>
+            </ul>
+            <p class="contact-note">返信まで少しお時間をいただく場合がありますが、ご了承ください。</p>
+          </div>
+          <div class="card fade-in">
+            <h3>つながりたい方へ</h3>
+            <p>教会の活動に関心のある方、地域の中で何か一緒にできればと考えてくださる方からのご連絡も歓迎しています。</p>
+            <p>支援を押し出すというより、まずは互いの思いを知り合うところから始められたらうれしく思います。</p>
+            <div class="cta-group">
+              <a class="btn btn-primary" href="mailto:xxxx@example.com">メールで問い合わせる</a>
+              <a class="btn btn-secondary" href="tel:00000000000">電話する</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">メダデ教会</div>
+        <p class="footer-small">どんな事情があっても、ここに来てよい。<br />人が人として迎えられる場所でありたいと願っています。</p>
+      </div>
+      <div>
+        <p class="footer-small">〒557-0031 大阪府大阪市西成区鶴見橋3-6-20<br />電話：○○○-○○○○-○○○○　メール：xxxx@example.com</p>
+        <p class="footer-small">© メダデ教会 All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-bar" aria-label="固定メニュー">
+    <a href="#access">アクセス</a>
+    <a href="#contact">お問い合わせ</a>
+  </div>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    const navLinks = document.querySelectorAll('.site-nav a');
+
+    if (navToggle && siteNav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!isOpen));
+        siteNav.classList.toggle('open');
+        document.body.classList.toggle('menu-open', !isOpen);
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          navToggle.setAttribute('aria-expanded', 'false');
+          siteNav.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+
+    const observerTargets = document.querySelectorAll('.fade-in');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      observerTargets.forEach((target) => observer.observe(target));
+    } else {
+      observerTargets.forEach((target) => target.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
