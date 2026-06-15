@@ -370,35 +370,68 @@
         radial-gradient(circle at top left, rgba(255,255,255,0.9), rgba(248,245,239,0.45) 40%, rgba(204,188,160,0.18) 100%),
         linear-gradient(135deg, #efe7da, #f8f5ef);
       border: 1px solid rgba(221, 212, 199, 0.8);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 250px 250px;
+      gap: 12px;
     }
 
-    .hero-visual::before {
-      content: "写真エリア";
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.78);
-      color: var(--text-light);
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
+    .hero-photo:nth-child(1) {
+      grid-row: 1 / 3;
     }
 
-    .hero-visual::after {
-      content: "教会や地域のぬくもりが伝わる写真をここに配置";
-      position: absolute;
-      left: 24px;
-      bottom: 24px;
-      right: 24px;
-      color: rgba(47, 49, 45, 0.76);
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(221, 212, 199, 0.85);
-      border-radius: 16px;
-      padding: 16px;
-      font-size: 0.95rem;
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      cursor: pointer;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+      transition: transform 0.25s ease, filter 0.25s ease;
     }
 
+    .hero-photo:hover {
+      transform: scale(1.025);
+      filter: brightness(1.04);
+    }
+
+    .hero-photo:nth-child(1) {
+      grid-row: 1 / 3;
+    }
+
+    .photo-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.78);
+    }
+
+    .photo-modal.is-open {
+      display: grid;
+    }
+
+    .photo-modal img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    @media (max-width: 768px) {
+      .hero-visual {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 220px);
+        min-height: auto;
+      }
+
+      .hero-photo:nth-child(1) {
+        grid-row: auto;
+      }
+    }
     .quick-info {
       margin-top: 18px;
       display: grid;
@@ -772,7 +805,15 @@
               </div>
             </div>
           </div>
-          <div class="hero-visual fade-in" aria-hidden="true"></div>
+          <div class="hero-visual fade-in" aria-hidden="true">
+            <img src="./img/photo1.jpg" alt="" class="hero-photo" onclick="openPhoto(this.src)">
+            <img src="./img/photo2.jpg" alt="" class="hero-photo" onclick="openPhoto(this.src)">
+            <img src="./img/photo3.jpg" alt="" class="hero-photo" onclick="openPhoto(this.src)">
+          </div>
+
+          <div id="photoModal" class="photo-modal" onclick="closePhoto()">
+            <img id="modalPhoto" src="" alt="">
+          </div>
         </div>
       </div>
     </section>
@@ -1020,6 +1061,21 @@
       observerTargets.forEach((target) => observer.observe(target));
     } else {
       observerTargets.forEach((target) => target.classList.add('visible'));
+    }
+    function openPhoto(src) {
+      const modal = document.getElementById("photoModal");
+      const modalPhoto = document.getElementById("modalPhoto");
+
+      modalPhoto.src = src;
+      modal.classList.add("is-open");
+    }
+
+    function closePhoto() {
+      const modal = document.getElementById("photoModal");
+      const modalPhoto = document.getElementById("modalPhoto");
+
+      modal.classList.remove("is-open");
+      modalPhoto.src = "";
     }
   </script>
 </body>
